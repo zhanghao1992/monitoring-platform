@@ -12,7 +12,8 @@
   -moz-osx-font-smoothing: grayscale;
   margin-right: 5px;
   text-align: center;
-  font-size: 24px;
+  padding: 0 3px;
+  font-size: 18px;
 }
 
 .icon-permission:before {
