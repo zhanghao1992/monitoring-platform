@@ -2,8 +2,8 @@
 require('./check-versions')()
 
 const config = require('../config')
-const index = require('../routes/index.js')
-const common = require('../routes/common/main.js')
+const index = require('../src/api/index.js')
+const common = require('../src/api/common/main.js')
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }

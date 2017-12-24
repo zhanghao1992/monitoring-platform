@@ -6,8 +6,7 @@ import App from './App'
 import router from './router'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import axios from 'axios'
-import qs from 'qs'
+import axios from './axios/index'
 import VueJsonp from 'vue-jsonp'
 import VueSession from 'vue-session'
 import Vuex from 'vuex'
@@ -19,23 +18,6 @@ Vue.use(Element, {
   size: 'medium',
   i18n: (key, value) => i18n.t(key, value)
 })
-
-axios.interceptors.request.use(config => {
-  // POST传参序列化
-  if (config.method === 'post') {
-    config.data = qs.stringify(config.data)
-  }
-  return config
-}, error => {
-  return Promise.reject(error)
-})
-
-axios.interceptors.response.use(response => {
-  return response
-}, error => {
-  return Promise.reject(error)
-})
-
 Vue.prototype.$http = axios
 Vue.use(VueJsonp)
 Vue.use(VueSession)

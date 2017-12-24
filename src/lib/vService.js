@@ -3,15 +3,15 @@ const qs = require('qs')
 
 module.exports = {
   debug: true,
-  getUrl (option) {
+  getUrl(option) {
     if (option.url) {
       console.log(option.url)
       return option.url
     } else {
-      return 'http://172.21.120.207:18171'
+      return 'http://172.21.120.207:18161'
     }
   },
-  get (req, res, option, callback) {
+  get(req, res, option, callback) {
     let me = this
     axios.get(`${me.getUrl(option)}${option.path}`, {
       params: req.query
@@ -21,7 +21,7 @@ module.exports = {
       res.json({code: -1})
     })
   },
-  post (req, res, option, callback) {
+  post(req, res, option, callback) {
     let me = this
     let dataObject = {}
     if (req.method === 'GET') {
@@ -37,9 +37,7 @@ module.exports = {
         dataObject = Object.assign({}, req.body)
       }
     }
-    axios.post(`${me.getUrl(option)}${option.path}`, qs.stringify(dataObject), {
-      // headers: option.headers || {'content-type': 'application/json'}
-    }).then(json => {
+    axios.post(`${me.getUrl(option)}${option.path}`, qs.stringify(dataObject), {}).then(json => {
       callback(json.data)
     }).catch((err) => {
       console.log(err)

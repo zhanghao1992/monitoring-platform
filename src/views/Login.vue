@@ -67,7 +67,7 @@
           ],
           message: [
             {
-              required: true, message: '输入短信验证码', trigger: 'blur'
+//              required: true, message: '输入短信验证码', trigger: 'blur'
             }
           ]
         },
@@ -94,13 +94,16 @@
             encrypt.setPublicKey(publicKey)
             this.loginForm.encryptedCaptcha = encrypt.encrypt(captchaValue)
             this.$http.post('/node/login', {
-              loginForm: this.loginForm
+              name: this.loginForm.name,
+              password: this.loginForm.password,
+              encryptedCaptcha: this.loginForm.encryptedCaptcha
             }).then(json => {
               const res = json.data
               if (res.code === 0) {
 //                const WL = window.localStorage
 //                WL.setItem('userInfo', JSON.stringify(this.ruleForm))
-                this.$router.push('/haslogin')
+//                this.setUser(res.)
+                this.$router.push('/index/panel')
               } else {
                 this.$notify.error({
                   title: '错误',

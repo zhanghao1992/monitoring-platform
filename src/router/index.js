@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import axios from 'axios'
+import axios from '../axios/index'
 import Login from '@/views/Login'
 import Index from '@/views/Index'
 import Panel from '@/views/Panel'// 监控看板
@@ -23,9 +23,6 @@ const router = new Router({
     },
     {
       path: '/index',
-      // meta: {
-      //   requireAuth: true
-      // },
       component: Index,
       children: [
         {
@@ -34,7 +31,10 @@ const router = new Router({
         },
         {
           path: 'panel',
-          component: Panel
+          component: Panel,
+          meta: {
+            requireAuth: true
+          }
         },
         {
           path: 'projects',
@@ -69,10 +69,11 @@ router.beforeEach((to, from, next) => {
   // store.state.user = userInfo
   if (to.meta && to.meta.requireAuth) {
     // 获取session
-    if (store.state.user) {
+    if (store.getters.user) {
       next()
     } else {
       axios.get('/node_common/getSession').then((json) => {
+        console.log('00000')
         console.log(json.data)
         store.state.user = json.data.response.session.user
         if (!store.state.user || store.state.user === null) {
