@@ -6,17 +6,17 @@
 
 <script type="text/ecmascript-6">
   export default {
-    data () {
+    data() {
       return {
         src: '',
         publicKey: ''
       }
     },
-    created () {
+    created() {
       this.switchCaptcha()
     },
     methods: {
-      switchCaptcha () {
+      switchCaptcha() {
 //      this.$http.get(`/connect_service/apply/createCaptcha?_=${new Date().getTime()}`).then(json => {
         this.$http.get(`/node_common/captcha?_=${new Date().getTime()}`, {
 //          params: {

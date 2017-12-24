@@ -19,10 +19,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    setUser: ({commit}, user) => {
+    setUser: ({ commit }, user) => {
       commit('SET_USER', user)
     },
-    exit: ({commit}) => {
+    exit: ({ commit }) => {
       commit('EXIT')
     }
   }

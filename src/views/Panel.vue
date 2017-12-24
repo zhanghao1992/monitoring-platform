@@ -69,7 +69,7 @@
 
 <script>
   export default {
-    data () {
+    data() {
       return {
         tableData: [
           {
@@ -100,9 +100,7 @@
         }
       }
     },
-    methods: {
-
-    },
+    methods: {},
     components: {}
   }
 </script>

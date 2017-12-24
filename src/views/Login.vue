@@ -29,11 +29,13 @@
 <script type="text/ecmascript-6">
   //  import vueValidate from './vueValidate'
   import Captcha from '@/components/base/Captcha/Captcha'
-  import { mapGetters, mapActions } from 'vuex'
+  import {
+    mapGetters, mapActions
+  } from 'vuex'
   import jsencrypt from 'jsencrypt'
 
   export default {
-    data () {
+    data() {
       return {
         loginForm: {
           name: '',
@@ -44,33 +46,44 @@
         },
         rules: {
           name: [
-            {required: true, message: '输入登录名', trigger: 'blur'},
-            {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'}
+            {
+              required: true, message: '输入登录名', trigger: 'blur'
+            },
+            {
+              min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur'
+            }
           ],
           password: [
-            {required: true, message: '输入密码', trigger: 'blur'}
+            {
+              required: true, message: '输入密码', trigger: 'blur'
+            }
 //            {validator: vueValidate.validatePass, trigger: 'blur'}
 //          {pattern: /^1[34578]\d{9}$/, message: '目前只支持中国大陆的手机号码', trigger: 'blur'}
           ],
           captcha: [
-            {required: true, message: '输入图形验证码', trigger: 'blur'}
+            {
+              required: true, message: '输入图形验证码', trigger: 'blur'
+            }
           ],
           message: [
-            {required: true, message: '输入短信验证码', trigger: 'blur'}
+            {
+              required: true, message: '输入短信验证码', trigger: 'blur'
+            }
           ]
         },
         publicKey: ''
       }
     },
-    mounted () {},
+    mounted() {
+    },
     computed: {
       ...mapGetters(['captcha'])
     },
     methods: {
-      setPublicKeyHandler (publicKey) {
+      setPublicKeyHandler(publicKey) {
         this.publicKey = publicKey
       },
-      onSubmit () {
+      onSubmit() {
         this.$refs.loginForm.validate((valid) => {
           if (valid) {
             const encrypt = new jsencrypt.JSEncrypt()

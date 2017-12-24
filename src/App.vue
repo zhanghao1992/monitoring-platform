@@ -14,8 +14,6 @@
 </script>
 
 <style>
-  @import "assets/css/reset.css";
-
   html {
     min-height: 100%;
   }
@@ -25,7 +23,7 @@
   }
 
   .el-header {
-    background-color: #409EFF;
+    background-color: rgb(48, 65, 86);
     color: #333;
     font-size: 24px;
     font-weight: 700;

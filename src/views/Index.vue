@@ -1,19 +1,21 @@
 <template>
-  <el-row>
-    <el-col :span="16" :offset="4">
-      <el-main style="background-color: #fff;">
+  <el-main>
+    <el-row>
+      <el-col :span="4">
         <tab></tab>
+      </el-col>
+      <el-col :span="20">
         <router-view></router-view>
-      </el-main>
-    </el-col>
-  </el-row>
+      </el-col>
+    </el-row>
+  </el-main>
 </template>
 
 <script>
   import Tab from '@/components/base/Tab/Tab'
 
   export default {
-    data () {
+    data() {
       return {}
     },
     methods: {},

@@ -42,7 +42,7 @@
           </el-table-column>
           <el-table-column
             label="c权限限制"
-            width="330px">
+            width="">
             <template slot-scope="scope">
               <el-switch
                 v-model="scope.row.value"
@@ -70,7 +70,7 @@
 
 <script>
   export default {
-    data () {
+    data() {
       return {
         tableData: [
           {
@@ -102,7 +102,7 @@
       }
     },
     methods: {
-      switchChange (row) {
+      switchChange(row) {
         console.log(row)
       }
     },

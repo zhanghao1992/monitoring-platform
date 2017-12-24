@@ -90,7 +90,7 @@
 
 <script>
   export default {
-    data () {
+    data() {
       return {
         tableData: [
           {
@@ -135,7 +135,7 @@
       }
     },
     methods: {
-      handleModify () {
+      handleModify() {
         this.dialogModifyMacroVisible = true
       }
     },

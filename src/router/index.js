@@ -17,7 +17,6 @@ Vue.use(Router)
 const router = new Router({
   mode: 'history',
   routes: [
-    {path: '*', component: NotFound},
     {
       path: '/',
       component: Login
@@ -42,7 +41,7 @@ const router = new Router({
           component: Projects
         },
         {
-          path: 'nbaotifiers',
+          path: 'notifiers',
           component: Notifiers
         },
         {
@@ -56,6 +55,9 @@ const router = new Router({
         {
           path: 'macro',
           component: Macro
+        },
+        {
+          path: '*', component: NotFound
         }
       ]
     }
@@ -74,7 +76,9 @@ router.beforeEach((to, from, next) => {
         console.log(json.data)
         store.state.user = json.data.response.session.user
         if (!store.state.user || store.state.user === null) {
-          next({path: '/login', component: Login})
+          next({
+            path: '/login', component: Login
+          })
         } else {
           next()
         }
