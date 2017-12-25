@@ -1,5 +1,10 @@
 <template>
-  <div>404</div>
+  <el-alert
+    title="404页面不存在"
+    show-icon
+    center
+    type="error">
+  </el-alert>
 </template>
 
 <script>

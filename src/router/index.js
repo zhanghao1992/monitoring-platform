@@ -4,9 +4,10 @@ import axios from '../axios/index'
 import Login from '@/views/Login'
 import Index from '@/views/Index'
 import Panel from '@/views/Panel'// 监控看板
-import Projects from '@/views/Projects'// 项目列表
+import Projects from '@/views/Projects/Projects'// 项目列表
+import ProjectDetail from '@/views/Projects/ProjectDetail'// 项目详情
 import Notifiers from '@/views/Notifiers'// 通知人
-import AlarmItem from '@/views/AlarmItem'// 报警项
+import AlarmItem from '@/views/AlarmItem/AlarmItem'// 报警项
 import Jurisdiction from '@/views/Jurisdiction'// 权限
 import Macro from '@/views/Macro'// 宏
 import NotFound from '@/views/NotFound'
@@ -15,11 +16,18 @@ import store from '../store/store'
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
+    {
+      path: '*', component: NotFound
+    },
     {
       path: '/',
       component: Login
+    },
+    {
+      path: '/login',
+      redirect: '/'
     },
     {
       path: '/index',
@@ -31,10 +39,10 @@ const router = new Router({
         },
         {
           path: 'panel',
-          component: Panel,
-          meta: {
-            requireAuth: true
-          }
+          component: Panel
+          // meta: {
+          //   requireAuth: true
+          // }
         },
         {
           path: 'projects',
@@ -57,7 +65,8 @@ const router = new Router({
           component: Macro
         },
         {
-          path: '*', component: NotFound
+          path: 'projects/:id',
+          component: ProjectDetail
         }
       ]
     }
@@ -78,7 +87,7 @@ router.beforeEach((to, from, next) => {
         store.state.user = json.data.response.session.user
         if (!store.state.user || store.state.user === null) {
           next({
-            path: '/login', component: Login
+            path: '/', component: Login
           })
         } else {
           next()

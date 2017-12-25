@@ -53,6 +53,9 @@
   .el-table .cell {
     line-height: 24px;
   }
+  .el-table__body, .el-table__footer, .el-table__header {
+    table-layout: auto;
+  }
 
   .loginOut {
     position: absolute;

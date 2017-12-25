@@ -1,9 +1,10 @@
 <template>
   <el-container>
     <el-main>
-      <el-button type="primary" @click="dialogAddNotifierVisible = true">添加通知人</el-button>
+      <el-button type="primary" style="margin-bottom: 22px;" @click="dialogAddNotifierVisible = true">添加通知人</el-button>
       <el-table
         :data="tableData"
+        border
         style="width: 100%">
         <el-table-column
           prop="date"

@@ -26,33 +26,33 @@
       class="el-menu-vertical-demo"
       background-color="rgb(48, 65, 86)"
       text-color="#fff"
-      active-text-color="rgb(64, 158, 255)">
+      active-text-color="rgb(64, 158, 255)!important">
       <el-menu-item index="1">
-        <router-link tag="div" :to="{ path: 'panel' }" active-class="tab-item-active">
+        <router-link tag="div" :to="{ path: '/index/panel' }" active-class="tab-item-active">
           <i class="el-icon-location"></i>
           <span>监控看板</span>
         </router-link>
       </el-menu-item>
       <el-menu-item index="2">
-        <router-link tag="div" :to="{ path: 'alerm-item' }" active-class="tab-item-active">
+        <router-link tag="div" :to="{ path: '/index/alerm-item' }" active-class="tab-item-active">
           <i class="el-icon-warning"></i>
           <span>报警项列表</span>
         </router-link>
       </el-menu-item>
       <el-menu-item index="3">
-        <router-link tag="div" :to="{ path: 'projects' }" active-class="tab-item-active">
+        <router-link tag="div" :to="{ path: '/index/projects' }" active-class="tab-item-active">
           <i class="iconfont icon-Fill"></i>
           <span>项目列表</span>
         </router-link>
       </el-menu-item>
       <el-menu-item index="4">
-        <router-link tag="div" :to="{ path: 'notifiers' }" active-class="tab-item-active">
+        <router-link tag="div" :to="{ path: '/index/notifiers' }" active-class="tab-item-active">
           <i class="iconfont icon-tongzhilianxiren"></i>
           <span>通知人列表</span>
         </router-link>
       </el-menu-item>
       <el-menu-item index="5">
-        <router-link tag="div" :to="{ path: 'jhonhurisdiction' }" active-class="tab-item-active">
+        <router-link tag="div" :to="{ path: '/index/jhonhurisdiction' }" active-class="tab-item-active">
           <i class="iconfont icon-permission"></i>
           <span>权限列表</span>
         </router-link>
