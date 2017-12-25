@@ -68,11 +68,40 @@
 </template>
 
 <script>
+  const tabMap = [
+    {
+      url: '/index/panel',
+      index: 1
+    },
+    {
+      url: '/index/alerm-item',
+      index: 2
+    },
+    {
+      url: '/index/projects',
+      index: 3
+    },
+    {
+      url: '/index/panel',
+      index: 4
+    },
+    {
+      url: '/index/notifiers',
+      index: 5
+    },
+    {
+      url: '/index/macro',
+      index: 6
+    }
+  ]
   export default {
     data() {
       return {
         activeIndex: '1'
       }
+    },
+    mounted() {
+      console.log(tabMap)
     },
     methods: {},
     components: {}
