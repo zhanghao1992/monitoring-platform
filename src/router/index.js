@@ -1,16 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import axios from '../axios/index'
-import Login from '@/views/Login'
-import Index from '@/views/Index'
-import Panel from '@/views/Panel'// 监控看板
-import Projects from '@/views/Projects/Projects'// 项目列表
-import ProjectDetail from '@/views/Projects/ProjectDetail'// 项目详情
-import Notifiers from '@/views/Notifiers'// 通知人
-import AlarmItem from '@/views/AlarmItem/AlarmItem'// 报警项
-import Jurisdiction from '@/views/Jurisdiction'// 权限
-import Macro from '@/views/Macro'// 宏
-import NotFound from '@/views/NotFound'
+
+const _import = require('./_import_' + process.env.NODE_ENV)
+const Login = _import('Login')
+const Index = _import('Index')
+const Panel = _import('Panel')// 监控看板
+const Projects = _import('Projects/Projects')// 项目列表
+const ProjectDetail = _import('Projects/ProjectDetail')// 项目详情
+const Notifiers = _import('Notifiers')// 通知人
+const AlarmItem = _import('AlarmItem/AlarmItem')// 报警项
+const Jurisdiction = _import('Jurisdiction')// 权限
+const Macro = _import('Macro')// 宏
+const NotFound = _import('NotFound')
 import store from '../store/store'
 
 Vue.use(Router)

@@ -110,7 +110,7 @@
             <el-button
               size="mini"
               type="primary"
-              @click="showDialogModifyMonitor(scope.$index, scope.row)">添加
+              @click="addTemplateShow(scope.$index, scope.row)">添加
             </el-button>
             <!--<el-button-->
             <!--size="mini"-->
@@ -164,7 +164,9 @@
                           @ok="addMonitor"></dialog-add-monitor>
       <dialog-modify-monitor :visible="dialogModifyMonitorVisible" @close="dialogModifyMonitorVisible=false"
                              @ok="modifyMonitor"></dialog-modify-monitor>
-
+      <dialog-add-template :visible="dialogAddTemplateVisible" @close="dialogAddTemplateVisible=false"
+                    @ok="modifyTemplate"></dialog-add-template>
+      emplate
     </el-main>
   </el-container>
 </template>
@@ -172,6 +174,7 @@
 <script>
   import dialogAddMonitor from '@/views/AlarmItem/dialogAddMonitor.vue'
   import dialogModifyMonitor from '@/views/AlarmItem/dialogModifyMonitor.vue'
+  import dialogAddTemplate from '@/views/AlarmItem/dialogAddTemplate.vue'
 
   export default {
     data() {
@@ -209,7 +212,7 @@
         },
         dialogAddMonitorVisible: false,
         dialogModifyMonitorVisible: false,
-        dialogNotificationTemplateVisible: true
+        dialogAddTemplateVisible: true
       }
     },
     methods: {
@@ -227,12 +230,18 @@
         console.log(form)
         this.dialogModifyMonitorVisible = false
       },
+      addTemplateShow(row) {
+      },
+      modifyTemplate(from) {
+      },
       deleteItem(row) {
+        this.dialogAddTemplateVisible = true
       }
     },
     components: {
       dialogAddMonitor,
-      dialogModifyMonitor
+      dialogModifyMonitor,
+      dialogAddTemplate
     }
   }
 </script>

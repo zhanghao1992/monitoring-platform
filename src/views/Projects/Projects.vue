@@ -50,7 +50,7 @@
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button @click="dialogAddProjectVisible = false">取消</el-button>
-          <el-button type="primary" @click="dialogAddProjectVisible = false">创建</el-button>
+          <el-button type="primary" @click="addProject">添加</el-button>
         </div>
       </el-dialog>
     </el-main>
@@ -111,6 +111,9 @@
         this.dialogModifyMacroVisible = true
       },
       deleteProject(row) {
+      },
+      addProject() {
+        this.dialogAddProjectVisible = false
       },
       toDetail(row) {
         this.$router.push({
